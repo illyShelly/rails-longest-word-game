@@ -27,6 +27,7 @@ class GamesController < ApplicationController
   def included?(word, letters)
     # all? return true only if all letters in array are true
     word.chars.all? { |char| word.count(char) <= letters.count(char) }
+    # binding.pry
   end
 
   def english_word?(answer)
