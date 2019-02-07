@@ -1,0 +1,25 @@
+<h1>New game</h1>
+<div>
+  <!-- ul outside of loop -> otherwise create ul, ul -->
+  <ul class="letter-box list-inline">
+    <% @letters.each do |letter| %>
+      <li> <%= letter %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<!-- added form with POST http request -->
+<h3>What is the longest word you can find</h3>
+
+<form action="/score" method="post" class="form-inline">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <div class="input-group">
+    <input class="form-control" type="text" name="answer" placeholder="your answer">
+    <input class="btn btn-default" type="submit" value="Play">
+  </div>
+</form>
+
+<!-- Go ahead and add a <form /> to your view. It should POST to the /score action in the GamesController. Remember about the :authenticity_token (see Lecture slides)! -->
+
+<!-- type `er + tab` for `<% %>` and `pe + tab` for `<%= %>` -->
